@@ -24,7 +24,7 @@ echo "us-east1 - US East (South Carolina)"
 echo "ap-northeast1 - Asia Pacific (Tokyo)"
 echo "us-west1 - US West (San Francisco)"
 read -p "Choose Cloudflare tunnel region: " CRP
-./cloudflared-linux-amd64 tunnel --url http://localhost:4000 &> cfl.txt &
+./cloudflared-linux-amd64 tunnel --url http://localhost:4040 &> cfl.txt &
 sleep 1
 
 # Check if Cloudflare tunnel is running
