@@ -24,7 +24,7 @@ echo "us-east1 - US East (South Carolina)"
 echo "ap-northeast1 - Asia Pacific (Tokyo)"
 echo "us-west1 - US West (San Francisco)"
 read -p "Choose Cloudflare tunnel region: " CRP
-./cloudflared-linux-amd64 tunnel --region $CRP --url http://localhost:4040 &> cf.txt &
+./cloudflared-linux-amd64 tunnel --url http://localhost:4040 &> cf.txt &
 sleep 1
 
 # Run Docker container with NoMachine
