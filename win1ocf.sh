@@ -27,9 +27,6 @@ read -p "Choose Cloudflare tunnel region: " CRP
 ./cloudflared-linux-amd64 tunnel --region $CRP --url http://localhost:4040 &> cf.txt &
 sleep 1
 
-# Check if Cloudflare tunnel is running
-if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Cloudflare Tunnel Error! Please try again!" && sleep 1 && goto cloudflared; fi
-
 # Run Docker container with NoMachine
 docker run --rm -d --network host --privileged --name nomachine-xfce4 -e PASSWORD=123456 -e USER=user --cap-add=SYS_PTRACE --shm-size=1g thuonghai2711/nomachine-ubuntu-desktop:windows10
 
@@ -37,7 +34,6 @@ clear
 echo "NoMachine: https://www.nomachine.com/download"
 echo "Done! NoMachine Information:"
 echo "IP Address:"
-curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"http:..([^"]*).*/\1/p'
 echo "User: user"
 echo "Passwd: 123456"
 echo "VM can't connect? Restart Cloud Shell then re-run the script."
