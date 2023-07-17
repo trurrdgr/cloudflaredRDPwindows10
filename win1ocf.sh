@@ -28,7 +28,7 @@ read -p "Choose Cloudflare tunnel region: " CRP
 sleep 1
 
 # Check if Cloudflare tunnel is running
-if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; else echo "Cloudflare Tunnel Error! Please try again!" && sleep 1 && goto cloudflared; fi
+if curl --silent --show-error http://127.0.0.1:4040/api/tunnels  > /dev/null 2>&1; then echo OK; fi
 
 # Run Docker container with NoMachine
 docker run --rm -d --network host --privileged --name nomachine-xfce4 -e PASSWORD=123456 -e USER=user --cap-add=SYS_PTRACE --shm-size=1g thuonghai2711/nomachine-ubuntu-desktop:windows10
